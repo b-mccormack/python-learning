@@ -16,7 +16,6 @@ def main():
             main()
         else:
             userOption()
-        
     else:
         continueInput2 = input("\nThat name does not appear in the dictionary. Would you like to try again? Y/N: ").upper()
         if continueInput2 == "Y":
@@ -38,8 +37,6 @@ def addData():
         with open("birthdays.json", "w") as g:
             json.dump(loadedData, g)
         print("\n" + str(newName) + "'s birthday has been added to the dictionary")
-        userOption()
-
     else:
         continueCheck = input("\nDo you want to add another birthday to the dictionary? Y/N: ").upper()
         if continueCheck == "Y":
