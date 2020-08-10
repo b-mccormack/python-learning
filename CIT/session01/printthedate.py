@@ -27,6 +27,7 @@ if (len(str(year)) < 4):
     exit()
 elif (len(str(year)) > 4):
     print("Error: you have entered too many digits")
+    exit()
 
 print(str(day) + "/" + str(month) + "/" + str(year))
 
