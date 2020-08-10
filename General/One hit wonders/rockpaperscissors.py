@@ -4,10 +4,10 @@
 player1 = input("Player 1, do you throw rock, paper or scissors?")
 if player1 == "Rock":
 	player1 = "rock"
-	
+
 if player1 == "Scissors":
 	player1 = "scissors"
-	
+
 if player1 == "Paper":
 	player1 = "paper"
 
@@ -16,13 +16,13 @@ player2 = input("Player 2, do you throw rock, paper or scissors?")
 
 if player2 == "Rock":
 	player2 = "rock"
-	
+
 if player2 == "Scissors":
 	player2 = "scissors"
-						
+
 if player2 == "Paper":
 	player2 = "paper"
-	
+
 throwList = [player1, player2]
 
 condition1 = ["rock", "scissors"]
