@@ -1,9 +1,0 @@
-a)	What are the main characteristics of scripting languages?
-
-    Scripting languages are normally simplified (high level) compared to programming languages which are more low level.
-    They are typically interpreted rather than compiled, and are likely to contain a list of commands that can be used for achieving certain goals
-    in an operating system or other environment (for example, setting configurations on hardware or software).
-
-b)	Please write few words on how to identify the protocols and object models for any scripting language.
-
-    Protocols and object models can be identified by
