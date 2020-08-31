@@ -4,11 +4,13 @@
 #
 # This program is designed to be a simple inventory management system for a small accounting firm
 
+import time
+
 staffDetails = {'Some Person' : ['0400111222','Accountant','95000']}
 
 # Define the main function which will be called when the application starts
 def main():
-    print("\nWelcome to the WIDGET inventory management system\n")
+    print("\nWelcome to the WIDGET inventory management system")
     menuText = "\nPlease select from the following menu options:\n\n\
         1 = Enter staff details\n\
         2 = See staff pay rates\n\
@@ -29,6 +31,7 @@ def main():
         exit()
     else:
         print("\nError: You did not enter a valid menu selection. Please enter a number between 1 and 4")
+        time.sleep(3)
         main()
 
 def addStaffDetails():
@@ -46,4 +49,3 @@ def gadgetCosting():
 
 
 main()
-
