@@ -20,4 +20,5 @@ def multiplyMatrices(a,b):
     for r in R:
         print(r)
 
+# Call the multiplyMatrices function using the X and Y matrices as inputs
 multiplyMatrices(X,Y)
