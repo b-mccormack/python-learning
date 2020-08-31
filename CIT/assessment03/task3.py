@@ -36,6 +36,7 @@ def addStaffDetails():
 
 def staffPayRates():
     print('This is staffPayRates')
+    print(staffDetails['Some Person'][2])
 
 def gadgetList():
     print('This is gadgetList')
@@ -46,6 +47,3 @@ def gadgetCosting():
 
 main()
 
-
-
-print(staffDetails['Some Person'][1])
