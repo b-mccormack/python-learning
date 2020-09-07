@@ -6,7 +6,14 @@
 
 import time
 
-staffDetails = {'Some Person' : ['0400111222','Accountant','95000']}
+staffDetails = {'Jane Doe' : ['0400111222','Accountant','95000'],\
+    'John Doe' : ['0400123123','Lawyer','110000'], 'Sam Daniels' : ['0401987567','Accountant','97000'],\
+    'Steve McKinley' : ['0402735244','Human Resources','62000'], 'Bruce Fletcher' : ['0423846247','Office Manager','106000'],\
+    'Leah Smith' : ['0463855233','Accountant','107500'], 'Karen Bucket' : ['0432574836','Business Owner','154000'],\
+    'Jessica Lovatt' : ['0427946139','Accountant','102000'], 'Matthew Hewitt' : ['0427946725','Manager','101000'],\
+    'Keiran Potter' : ['0428947363','Accountant','104700']}
+
+
 
 # Define the main function which will be called when the application starts
 def main():
@@ -35,10 +42,7 @@ def main():
         main()
 
 def addStaffDetails():
-    print('This is addStaffDetails')
-    openStaffData = open("task3staffdata.txt", "r").read()
-    readStaffData = eval(openStaffData)
-    print(readStaffData)
+    print(staffDetails['Jane Doe'][1])
 
 def staffPayRates():
     print('This is staffPayRates')
