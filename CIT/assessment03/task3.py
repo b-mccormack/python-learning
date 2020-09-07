@@ -30,12 +30,15 @@ def main():
     elif menuSelection == '5':
         exit()
     else:
-        print("\nError: You did not enter a valid menu selection. Please enter a number between 1 and 4")
+        print("\nError: You did not enter a valid menu selection. Please enter a number between 1 and 5")
         time.sleep(3)
         main()
 
 def addStaffDetails():
     print('This is addStaffDetails')
+    openStaffData = open("task3staffdata.txt", "r").read()
+    readStaffData = eval(openStaffData)
+    print(readStaffData)
 
 def staffPayRates():
     print('This is staffPayRates')
