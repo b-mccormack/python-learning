@@ -6,6 +6,7 @@
 
 import time
 
+# Create a dictionary containing existing staff details
 staffDetails = {'Jane Doe' : ['0400111222','Accountant','95000'],\
     'John Doe' : ['0400123123','Lawyer','110000'], 'Sam Daniels' : ['0401987567','Accountant','97000'],\
     'Steve McKinley' : ['0402735244','Human Resources','62000'], 'Bruce Fletcher' : ['0423846247','Office Manager','106000'],\
@@ -13,7 +14,18 @@ staffDetails = {'Jane Doe' : ['0400111222','Accountant','95000'],\
     'Jessica Lovatt' : ['0427946139','Accountant','102000'], 'Matthew Hewitt' : ['0427946725','Manager','101000'],\
     'Keiran Potter' : ['0428947363','Accountant','104700']}
 
+# Defining the equipment amounts required per staff member
+staffPerRouter = 10
+staffPerServer = 5
+staffPerSwitch = 5
+staffPerLaptop = 1
+totalStaff = len(staffDetails) # Value equal to the number of entries in the dictionary
 
+# Working out the number of hardware devices required here to avoid duplicating code in the gadgetList and gadgetCosting functions
+numberRouters = totalStaff // staffPerRouter
+numberServers = totalStaff // staffPerServer
+numberSwitches = totalStaff // staffPerSwitch
+numberLaptops = totalStaff // staffPerLaptop
 
 # Define the main function which will be called when the application starts
 def main():
@@ -45,14 +57,46 @@ def addStaffDetails():
     print(staffDetails['Jane Doe'][1])
 
 def staffPayRates():
-    print('This is staffPayRates')
-    print(staffDetails['Some Person'][2])
+    print('\nThe yearly salaries for staff members are as follows:\n')
+    salarySum = 0
+    for i in staffDetails: # Iterate through each staff member in the dictionary and print the name and salary in each pass
+        salarySum += int(staffDetails[i][2]) # Add the currently selected staff member's salary to the running total
+        print(i + " = $" + str(staffDetails[i][2]))
+    print("\nThe total value of all staff salaries is $" + str(salarySum)) # Print the complete total value of the staff salaries
+    # Menu selection for the user to return to main or exit
+    userContinue = input(str("\nWould you like to return to the menu? y/n\n"))
+    if userContinue == 'y' or userContinue == 'Y':
+        main()
+    else:
+        exit()
 
 def gadgetList():
-    print('This is gadgetList')
+    print("The total hardware required for the company is as follows:")
+    print("\nRouters = " + str(numberRouters))
+    print("Servers = " + str(numberServers))
+    print("Switches = " + str(numberSwitches))
+    print("Laptops = " + str(numberLaptops))
+    # Menu selection for the user to return to main or exit
+    userContinue = input(str("\nWould you like to return to the menu? y/n\n"))
+    if userContinue == 'y' or userContinue == 'Y':
+        main()
+    else:
+        exit()
 
 def gadgetCosting():
-    print('This is gadgetCosting')
-
+    # Define the costs for each hardware device
+    routerCost = 3500
+    serverCost = 6750
+    switchCost = 2200
+    laptopCost = 1680
+    # Multiply each cost by the number of units required to get a subtotal per device type, and add each subtotal to get a grand total
+    totalHardwareCost = (routerCost*numberRouters)+(serverCost*numberSwitches)+(switchCost*numberSwitches)+(laptopCost*numberLaptops)
+    print("\nThe total cost for all required IT hardware for the company is $" + str(totalHardwareCost))
+    # Menu selection for the user to return to main or exit
+    userContinue = input(str("\nWould you like to return to the menu? y/n\n"))
+    if userContinue == 'y' or userContinue == 'Y':
+        main()
+    else:
+        exit()
 
 main()
