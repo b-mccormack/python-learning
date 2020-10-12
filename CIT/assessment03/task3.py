@@ -102,7 +102,7 @@ def editStaffMember():
         print("\nYou have selected staff member " + str(staffName) + ". Please enter a selection for the data you wish to modify:\n")
         editField = str(input("1: Phone number\n2: Job role\n3: Salary\n4: Return to main menu\n"))
         if editField == '4':
-            exit()
+            main()
         elif editField not in ['1','2','3']:
             print("You did not enter a valid number. Please try again.")
             time.sleep(3)
