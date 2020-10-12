@@ -110,11 +110,11 @@ def editStaffMember():
         confirmData = str(input("The new value you have entered is: " + str(newValue) + " - is this correct? y/n: "))
         if confirmData == 'y' or confirmData == 'Y':
             if editField == '1':
-                staffDetails[staffName] = [newValue,staffDetails[staffName][1],staffDetails[staffName][2]]
+                staffDetails[staffName][0] = newValue
             elif editField == '2':
-                staffDetails[staffName] = [staffDetails[staffName][0],newValue,staffDetails[staffName][2]]
+                staffDetails[staffName][1] = newValue
             elif editField == '3':
-                staffDetails[staffName] = [staffDetails[staffName][0],staffDetails[staffName][1],newValue]
+                staffDetails[staffName][2] = newValue
             print("The staff member's details are now:",staffDetails[staffName])
             time.sleep(3)
             main()
