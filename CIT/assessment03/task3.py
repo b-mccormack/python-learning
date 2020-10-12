@@ -78,11 +78,12 @@ def addStaffMember():
     newPhoneNumber = str(input("Please enter the phone number of the new staff member: "))
     newRole = str(input("Please enter the job role of the new staff member: "))
     newSalary = str(input("Please enter the salary of the new staff member: "))
-    print("The details you have entered are:\nName:",newName,"\nPhone number:",newPhoneNumber,"\nJob role:",newRole,"\nSalary:",newSalary,"\n\n")
+    print("The details you have entered are:\nName:",newName,"\nPhone number:",newPhoneNumber,"\nJob role:",newRole,"\nSalary:",newSalary,"\n")
     commitData = str(input("Is this information correct? y/n"))
     if commitData == 'y' or commitData == 'Y':
         staffDetails[newName] = [newPhoneNumber,newRole,newSalary]
-        returnToMenu = str(input("The staff member's details have been added. Enter 1 to return to the main menu or 2 to exit:\n"))
+        print("The staff member's details have been added as follows:",staffDetails[newName])
+        returnToMenu = str(input("Enter 1 to return to the main menu or 2 to exit:\n"))
         if returnToMenu == '1':
             main()
         else:
@@ -98,7 +99,7 @@ def addStaffMember():
 def editStaffMember():
     staffName = str(input("Please enter the name of the staff member you wish to edit (case sensitive):\n"))
     if staffName in staffDetails:
-        print("\nYou have selected staff member" + str(staffName) + ". Please enter a selection for the data you wish to modify:\n")
+        print("\nYou have selected staff member " + str(staffName) + ". Please enter a selection for the data you wish to modify:\n")
         editField = str(input("1: Phone number\n2: Job role\n3: Salary\n4: Return to main menu\n"))
         if editField == '4':
             exit()
