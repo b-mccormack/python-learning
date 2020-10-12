@@ -53,6 +53,7 @@ def main():
         time.sleep(3)
         main()
 
+# Function for the sub menu to choose whether to add a new staff member or edit an existing one
 def staffDetailsMenu():
     optionText = "\nPlease select from the following options:\n\n\
         1 = Add a new staff member\n\
@@ -71,6 +72,7 @@ def staffDetailsMenu():
         time.sleep(3)
         staffDetailsMenu()
 
+# Function for adding a new staff member
 def addStaffMember():
     newName = str(input("\nPlease enter the full name of the new staff member you wish to add: "))
     newPhoneNumber = str(input("Please enter the phone number of the new staff member: "))
@@ -92,6 +94,7 @@ def addStaffMember():
         else:
             main()
 
+# Function for editing the data for an existing staff member
 def editStaffMember():
     staffName = str(input("Please enter the name of the staff member you wish to edit (case sensitive):\n"))
     if staffName in staffDetails:
@@ -124,6 +127,7 @@ def editStaffMember():
         else:
             main()
 
+# Function that totals the salaries of all staff members that currently exist in the staffDetails dictionary
 def staffPayRates():
     print('\nThe yearly salaries for staff members are as follows:\n')
     salarySum = 0
@@ -138,6 +142,7 @@ def staffPayRates():
     else:
         exit()
 
+# Function that outputs the number of hardware devices required based on how many staff members exist
 def gadgetList():
     print("The total hardware required for the company is as follows:")
     print("\nRouters = " + str(numberRouters))
@@ -151,6 +156,7 @@ def gadgetList():
     else:
         exit()
 
+# Function that outputs the total cost of the hardware devices required by the company
 def gadgetCosting():
     # Define the costs for each hardware device
     routerCost = 3500
