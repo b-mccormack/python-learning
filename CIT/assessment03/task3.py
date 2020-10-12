@@ -31,7 +31,7 @@ numberLaptops = totalStaff // staffPerLaptop
 def main():
     print("\nWelcome to the WIDGET inventory management system")
     menuText = "\nPlease select from the following menu options:\n\n\
-        1 = Enter staff details\n\
+        1 = Enter new staff member details, or edit existing ones\n\
         2 = See staff pay rates\n\
         3 = See a list of required IT hardware\n\
         4 = See the costing for IT hardware\n\
@@ -39,7 +39,7 @@ def main():
         Please enter your selection: "
     menuSelection = str(input(menuText))
     if menuSelection == '1':
-        addStaffDetails()
+        staffDetailsMenu()
     elif menuSelection == '2':
         staffPayRates()
     elif menuSelection == '3':
@@ -53,8 +53,76 @@ def main():
         time.sleep(3)
         main()
 
-def addStaffDetails():
-    print(staffDetails['Jane Doe'][1])
+def staffDetailsMenu():
+    optionText = "\nPlease select from the following options:\n\n\
+        1 = Add a new staff member\n\
+        2 = Change details of an existing staff member\n\
+        3 = Return to main menu\n\n\
+        Please enter your selection: "
+    userSelection = str(input(optionText))
+    if userSelection == '1':
+        addStaffMember()
+    elif userSelection == '2':
+        editStaffMember()
+    elif userSelection == '3':
+        main()
+    else:
+        print("You did not enter a valid menu selection. Please enter a number between 1 and 3")
+        time.sleep(3)
+        staffDetailsMenu()
+
+def addStaffMember():
+    newName = str(input("\nPlease enter the full name of the new staff member you wish to add: "))
+    newPhoneNumber = str(input("Please enter the phone number of the new staff member: "))
+    newRole = str(input("Please enter the job role of the new staff member: "))
+    newSalary = str(input("Please enter the salary of the new staff member: "))
+    print("The details you have entered are:\nName:",newName,"\nPhone number:",newPhoneNumber,"\nJob role:",newRole,"\nSalary:",newSalary,"\n\n")
+    commitData = str(input("Is this information correct? y/n"))
+    if commitData == 'y' or commitData == 'Y':
+        staffDetails[newName] = [newPhoneNumber,newRole,newSalary]
+        returnToMenu = str(input("The staff member's details have been added. Enter 1 to return to the main menu or 2 to exit:\n"))
+        if returnToMenu == '1':
+            main()
+        else:
+            exit()
+    else:
+        startAgain = str(input("Would you like to enter the details again? y/n\n"))
+        if startAgain == 'y' or startAgain == 'Y':
+            addStaffMember()
+        else:
+            main()
+
+def editStaffMember():
+    staffName = str(input("Please enter the name of the staff member you wish to edit (case sensitive):\n"))
+    if staffName in staffDetails:
+        print("\nYou have selected staff member" + str(staffName) + ". Please enter a selection for the data you wish to modify:\n")
+        editField = str(input("1: Phone number\n2: Job role\n3: Salary\n4: Return to main menu\n"))
+        if editField == '4':
+            exit()
+        elif editField not in ['1','2','3']:
+            print("You did not enter a valid number. Please try again.")
+            time.sleep(3)
+            editStaffMember()
+        newValue = str(input("Please enter the new value for this field: "))
+        confirmData = str(input("The new value you have entered is: " + str(newValue) + " - is this correct? y/n: "))
+        if confirmData == 'y' or confirmData == 'Y':
+            if editField == '1':
+                staffDetails[staffName] = [newValue,staffDetails[staffName][1],staffDetails[staffName][2]]
+            elif editField == '2':
+                staffDetails[staffName] = [staffDetails[staffName][0],newValue,staffDetails[staffName][2]]
+            elif editField == '3':
+                staffDetails[staffName] = [staffDetails[staffName][0],staffDetails[staffName][1],newValue]
+            print("The staff member's details are now:",staffDetails[staffName])
+            time.sleep(3)
+            main()
+        else:
+            editStaffMember()
+    else:
+        tryAgain = str(input("\nThat staff member could not be found. Enter 1 to try again, or 2 to return to the main menu:\n"))
+        if tryAgain == '1':
+            editStaffMember()
+        else:
+            main()
 
 def staffPayRates():
     print('\nThe yearly salaries for staff members are as follows:\n')
