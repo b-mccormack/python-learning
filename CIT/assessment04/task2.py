@@ -7,6 +7,8 @@
 # Define the dictionaries that contain marks for the students
 dictBob = { 'name':'bob', 'assignments':[15,16,14,20], 'presentations':[8,6,7,9], 'lab tasks':[18,15,16,20] }
 dictJane = { 'name':'jane', 'assignments':[45,52,50,55], 'presentations':[9,7,8,10], 'lab tasks':[28,25,26,30] }
+combinedDict = { 'bob':{ 'name':'bob', 'assignments':[15,16,14,20], 'presentations':[8,6,7,9], 'lab tasks':[18,15,16,20] },
+    'jane':{ 'name':'jane', 'assignments':[45,52,50,55], 'presentations':[9,7,8,10], 'lab tasks':[28,25,26,30] }}
 
 # Put the student's names into a list and print it
 studentList = [dictBob['name'],dictJane['name']]
@@ -38,6 +40,7 @@ def average(numbers: list):
     result = total / len(numbers)
     return(result)
 
+# Define a function to take the student's score and return a grade
 def letter_grade(score: float):
     if score >= 90:
         return('HD')
@@ -50,7 +53,13 @@ def letter_grade(score: float):
     else:
         return('F')
 
-averageNum = get_average(dictBob)
-print(averageNum)
-resultGrade = letter_grade(averageNum)
-print(resultGrade)
+def class_average(students: list):
+    results = []
+    for i in studentList:
+        studentAverage = get_average(combinedDict[i])
+        results.append(studentAverage)
+    classAverage = sum(results) / len(results)
+    classGrade = letter_grade(classAverage)
+    print('The class average score is:', classAverage, '\nThe class average grade is:',classGrade)
+
+class_average(studentList)
