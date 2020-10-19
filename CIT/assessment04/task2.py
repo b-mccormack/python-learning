@@ -53,6 +53,7 @@ def letter_grade(score: float):
     else:
         return('F')
 
+# Define a function to take a list of students as an input and find the average score of the class
 def class_average(students: list):
     results = []
     for i in studentList:
