@@ -21,7 +21,7 @@ print("The marks for student " + str(dictJane['name']) + " are:\nAssignments: " 
     str(dictJane['presentations']) + "\nLab tasks: " + str(dictJane['lab tasks']) + "\n")
 
 # Define the get_average function to get the weighted final results for a student
-def get_average(dictionary: dict):
+def get_average(dictionary:dict):
     assignmentResult = average(dictionary['assignments']) / 60
     presentationResult = average(dictionary['presentations']) / 10
     labTaskResult = average(dictionary['lab tasks']) / 30
@@ -35,13 +35,13 @@ def get_average(dictionary: dict):
     return(finalResult)
 
 # Define the function to determine the average of a list of numbers
-def average(numbers: list):
+def average(numbers:list):
     total = float((sum(numbers)))
     result = total / len(numbers)
     return(result)
 
 # Define a function to take the student's score and return a grade
-def letter_grade(score: float):
+def letter_grade(score:float):
     if score >= 90:
         return('HD')
     elif score >= 80:
@@ -54,7 +54,7 @@ def letter_grade(score: float):
         return('F')
 
 # Define a function to take a list of students as an input and find the average score of the class
-def class_average(students: list):
+def class_average(students:list):
     results = []
     for i in studentList:
         studentAverage = get_average(combinedDict[i])
