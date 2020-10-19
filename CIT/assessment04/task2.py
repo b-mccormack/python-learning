@@ -19,7 +19,7 @@ print("The marks for student " + str(dictJane['name']) + " are:\nAssignments: " 
     str(dictJane['presentations']) + "\nLab tasks: " + str(dictJane['lab tasks']) + "\n")
 
 # Define the get_average function to get the weighted final results for a student
-def get_average(dictionary):
+def get_average(dictionary: dict):
     assignmentResult = average(dictionary['assignments']) / 60
     presentationResult = average(dictionary['presentations']) / 10
     labTaskResult = average(dictionary['lab tasks']) / 30
@@ -33,11 +33,24 @@ def get_average(dictionary):
     return(finalResult)
 
 # Define the function to determine the average of a list of numbers
-def average(numbers):
-    total = (sum(numbers))
-    total = float(total)
+def average(numbers: list):
+    total = float((sum(numbers)))
     result = total / len(numbers)
     return(result)
 
+def letter_grade(score: float):
+    if score >= 90:
+        return('HD')
+    elif score >= 80:
+        return('D')
+    elif score >= 70:
+        return('CR')
+    elif score >= 60:
+        return('P')
+    else:
+        return('F')
 
-get_average(dictJane)
+averageNum = get_average(dictBob)
+print(averageNum)
+resultGrade = letter_grade(averageNum)
+print(resultGrade)
