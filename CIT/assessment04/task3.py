@@ -14,7 +14,7 @@ userInput = str(input('\nPlease enter an email address you would like to validat
 emailRegex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
 
 # Define the function that will accept a regular expression and a string to test as inputs and print whether the email address is valid or not
-def check_validity(regex: str,email: str):
+def check_validity(regex:str,email:str):
     if(re.search(regex,email)):
         print("That is a valid email address")
     else:
