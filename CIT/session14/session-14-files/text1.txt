@@ -1,1 +1,6 @@
-just a text
+Apple
+Apricot
+Orange
+Tomato
+Banana
+Cabbage
