@@ -24,7 +24,7 @@ for i in fileList:
 print('The number of images is:',imgCount)
 print('The number of txt files is:',txtCount)
 print('The number of other files is:',otherFileCount)
-print('The total number of files is:', (imgCount + txtCount + otherFileCount))
+print('The total number of files is:',(imgCount + txtCount + otherFileCount))
 
 
 # print(fileList)
